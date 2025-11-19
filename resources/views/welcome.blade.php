@@ -15,16 +15,39 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
 
     @vite(['resources/css/app.css'])
+    @fluxAppearance
 </head>
 <body class="dark:bg-[#0a0a0a] dark:text-[#FDFDFC] p-6">
 
-<x-button href="#" color="red">
-   Hello world
-</x-button>
 
-<x-badge size="sm" href="#" color="yellow">small</x-badge>
-<x-badge size="md" href="#" color="purple">medium</x-badge>
-<x-badge size="lg" href="#" color="purple">large</x-badge>
+<div x-data="{ showAlert: false }">
+    <button @click="showAlert = true">
+        Refund payment
+    </button>
+
+
+    <x-alert x-model="showAlert" size="5xl">
+        <x-alert-title>Are you sure you want to refund this payment?</x-alert-title>
+        <x-alert-description>
+            The refund will be reflected in the customer's bank account 2 to 3 business days after processing.
+        </x-alert-description>
+        <x-input />
+        <x-alert-actions>
+            <x-button plain @click="showAlert = false">
+                Cancel
+            </x-button>
+            <x-button @click="showAlert = false">
+                Refund
+            </x-button>
+        </x-alert-actions>
+    </x-alert>
+</div>
+
+
+
+
+
+
 
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))
@@ -280,5 +303,6 @@
         <div class="h-14.5 hidden lg:block"></div>
     @endif--}}
 @vite(['resources/js/app.js'])
+@fluxScripts
 </body>
 </html>
