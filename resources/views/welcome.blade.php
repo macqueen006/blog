@@ -18,11 +18,13 @@
 </head>
 <body class="dark:bg-[#0a0a0a] dark:text-[#FDFDFC] p-6">
 
-<x-button plain href="/trash">
-    <x-icon name="trash"/>
-    Trash
+<x-button href="#" color="red">
+   Hello world
 </x-button>
 
+<x-badge size="sm" href="#" color="yellow">small</x-badge>
+<x-badge size="md" href="#" color="purple">medium</x-badge>
+<x-badge size="lg" href="#" color="purple">large</x-badge>
 
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))
