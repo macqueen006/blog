@@ -20,50 +20,6 @@
 <body class="dark:bg-[#0a0a0a] dark:text-[#FDFDFC] p-6">
 
 
-<div x-data="{ showAlert: false }">
-    <button @click="showAlert = true">
-        Refund payment
-    </button>
-
-
-    <x-alert x-model="showAlert" size="5xl">
-        <x-alert-title>Are you sure you want to refund this payment?</x-alert-title>
-        <x-alert-description>
-            The refund will be reflected in the customer's bank account 2 to 3 business days after processing.
-        </x-alert-description>
-        <x-input />
-        <x-alert-actions>
-            <x-button plain @click="showAlert = false">
-                Cancel
-            </x-button>
-            <x-button @click="showAlert = false">
-                Refund
-            </x-button>
-        </x-alert-actions>
-    </x-alert>
-<div class="mb-[100px]"></div>
-
-
-<x-dropdown>
-    <x-slot:trigger>
-        <x-dropdown-button outline>
-            Options
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 ml-1">
-                <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
-            </svg>
-        </x-dropdown-button>
-    </x-slot:trigger>
-
-    <x-dropdown-item href="/view">View</x-dropdown-item>
-    <x-dropdown-item href="/edit">Edit</x-dropdown-item>
-    <x-dropdown-item onclick="confirm('Delete?')">Delete</x-dropdown-item>
-</x-dropdown>
-
-
-
-
-
-
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">
