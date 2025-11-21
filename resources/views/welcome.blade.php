@@ -33,6 +33,34 @@
     <x-description-details>Full Stack Developer</x-description-details>
 </x-description-list>
 
+
+<div x-data="{ open: false }">
+    <button @click="open = true">View Terms</button>
+
+    <x-dialog size="sm">
+        <x-dialog-title>Terms and Conditions</x-dialog-title>
+        <x-dialog-description>
+            Please agree to the following terms and conditions to continue.
+        </x-dialog-description>
+
+        <x-dialog-body class="max-h-96 overflow-y-auto text-sm/6 text-zinc-900 dark:text-white">
+            <p class="mt-4">
+                By accessing and using our services, you are agreeing to these terms...
+            </p>
+            <h3 class="mt-6 font-bold">Comprehensive Acceptance of Terms</h3>
+            <p class="mt-4">
+                Your engagement with our application signifies your irrevocable acceptance...
+            </p>
+            {{-- More content --}}
+        </x-dialog-body>
+
+        <x-dialog-actions>
+            <button @click="open = false">Decline</button>
+            <button @click="open = false">Accept</button>
+        </x-dialog-actions>
+    </x-dialog>
+</div>
+
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">

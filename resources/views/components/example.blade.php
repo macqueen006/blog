@@ -50,13 +50,13 @@
         <x-dropdown-item onclick="confirm('Delete?')">Delete</x-dropdown-item>
     </x-dropdown>
 
-    <div x-data="{ showAlert: false }">
-        <button @click="showAlert = true">
+    <div x-data="{ open: false }">
+        <button @click="open = true">
             Refund payment
         </button>
 
 
-        <x-alert x-model="showAlert" size="5xl">
+        <x-alert size="5xl">
             <x-alert-title>Are you sure you want to refund this payment?</x-alert-title>
             <x-alert-description>
                 The refund will be reflected in the customer's bank account 2 to 3 business days after processing.
@@ -121,6 +121,34 @@
         <x-description-term>Profession</x-description-term>
         <x-description-details>Full Stack Developer</x-description-details>
     </x-description-list>
+
+    {{-- Dialog --}}
+    <div x-data="{ open: false }">
+        <button @click="open = true">View Terms</button>
+
+        <x-dialog size="sm">
+            <x-dialog-title>Terms and Conditions</x-dialog-title>
+            <x-dialog-description>
+                Please agree to the following terms and conditions to continue.
+            </x-dialog-description>
+
+            <x-dialog-body class="max-h-96 overflow-y-auto text-sm/6 text-zinc-900 dark:text-white">
+                <p class="mt-4">
+                    By accessing and using our services, you are agreeing to these terms...
+                </p>
+                <h3 class="mt-6 font-bold">Comprehensive Acceptance of Terms</h3>
+                <p class="mt-4">
+                    Your engagement with our application signifies your irrevocable acceptance...
+                </p>
+                {{-- More content --}}
+            </x-dialog-body>
+
+            <x-dialog-actions>
+                <button @click="open = false">Decline</button>
+                <button @click="open = false">Accept</button>
+            </x-dialog-actions>
+        </x-dialog>
+    </div>
 
 </div>
 
