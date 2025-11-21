@@ -61,6 +61,21 @@
     </x-dialog>
 </div>
 
+<div class="max-w-[400px]">
+    <x-pagination>
+        <x-pagination-previous href="?page=1" />
+        <x-pagination-list>
+            <x-pagination-page href="?page=1">1</x-pagination-page>
+            <x-pagination-page href="?page=2">2</x-pagination-page>
+            <x-pagination-page href="?page=3" current>3</x-pagination-page>
+            <x-pagination-page href="?page=4">4</x-pagination-page>
+            <x-pagination-gap />
+            <x-pagination-page href="?page=65">65</x-pagination-page>
+            <x-pagination-page href="?page=66">66</x-pagination-page>
+        </x-pagination-list>
+        <x-pagination-next href="?page=4">Next</x-pagination-next>
+    </x-pagination>
+</div>
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">

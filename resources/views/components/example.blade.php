@@ -305,6 +305,63 @@
         </x-table>
     </div>
 
+    {{-- Pagination --}}
+    <div class="max-w-[400px]">
+        <x-pagination>
+            <x-pagination-previous/>
+            <x-pagination-next href="?page=2"/>
+        </x-pagination>
+
+        <x-pagination>
+            <x-pagination-previous href="?page=1" />
+            <x-pagination-list>
+                <x-pagination-page href="?page=1">1</x-pagination-page>
+                <x-pagination-page href="?page=2">2</x-pagination-page>
+                <x-pagination-page href="?page=3" current>3</x-pagination-page>
+                <x-pagination-page href="?page=4">4</x-pagination-page>
+                <x-pagination-gap />
+                <x-pagination-page href="?page=65">65</x-pagination-page>
+                <x-pagination-page href="?page=66">66</x-pagination-page>
+            </x-pagination-list>
+            <x-pagination-next href="?page=4">Next</x-pagination-next>
+        </x-pagination>
+    </div>
+
+    {{-- Pagination --}}
+    @if($products->hasPages())
+        <x-pagination>
+            <x-pagination-previous :href="$products->previousPageUrl()" />
+
+            <x-pagination-list>
+                @php
+                    $current = $products->currentPage();
+                    $last = $products->lastPage();
+                    $start = max(1, $current - 2);
+                    $end = min($last, $current + 2);
+                @endphp
+
+                @for($page = $start; $page <= $end; $page++)
+                    <x-pagination-page
+                        :href="$products->url($page)"
+                        :current="$page === $current"
+                    >
+                        {{ $page }}
+                    </x-pagination-page>
+                @endfor
+
+                @if($end < $last)
+                    <x-pagination-gap />
+                    <x-pagination-page :href="$products->url($last)">
+                        {{ $last }}
+                    </x-pagination-page>
+                @endif
+            </x-pagination-list>
+
+            <x-pagination-next :href="$products->nextPageUrl()" />
+        </x-pagination>
+    @endif
+
+
 </div>
 
 /*
