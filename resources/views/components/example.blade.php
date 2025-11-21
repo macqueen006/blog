@@ -150,6 +150,29 @@
         </x-dialog>
     </div>
 
+    {{-- Checkbox --}}
+    <div class="space-x-2">
+        <x-checkbox name="allow_embedding" color="orange" aria-label="Allow embedding" />
+        <x-checkbox color="sky" :checked="true" />
+        <x-checkbox color="red" :checked="true" />
+        <x-checkbox color="green" :checked="true" />
+        <x-checkbox color="purple" :checked="true" />
+    </div>
+
+    <x-checkbox-group class="w-full">
+        <x-checkbox-field>
+            <x-checkbox name="show_on_events_page" :checked="true" />
+            <x-label>Show on events page</x-label>
+            <x-description class="col-span-full">Make this event visible on your profile.</x-description>
+        </x-checkbox-field>
+
+        <x-checkbox-field>
+            <x-checkbox name="allow_embedding" />
+            <x-label>Allow embedding</x-label>
+            <x-description class="col-span-full">Allow others to embed your event details on their own site.</x-description>
+        </x-checkbox-field>
+    </x-checkbox-group>
+
 </div>
 
 /*

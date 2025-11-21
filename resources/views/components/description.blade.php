@@ -1,6 +1,3 @@
-<div
-    data-description
-    {{ $attributes->merge(['class' => 'text-base/6 text-zinc-500 sm:text-sm/6 dark:text-zinc-400']) }}
->
+<div data-description {{ $attributes->merge(['class' => 'text-sm/6 text-zinc-500 dark:text-zinc-400']) }}>
     {{ $slot }}
 </div>
