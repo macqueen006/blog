@@ -173,6 +173,138 @@
         </x-checkbox-field>
     </x-checkbox-group>
 
+    {{-- Table --}}
+    @php
+        $users = [
+            (object) [
+                'id' => 1,
+                'name' => 'Leslie Alexander',
+                'email' => 'leslie.alexander@example.com',
+                'handle' => 'lesliealexander',
+                'role' => 'Co-Founder / CEO',
+                'access' => 'Admin',
+                'online' => true,
+                'avatar_url' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+            ],
+            (object) [
+                'id' => 2,
+                'name' => 'Michael Foster',
+                'email' => 'michael.foster@example.com',
+                'handle' => 'michaelfoster',
+                'role' => 'Co-Founder / CTO',
+                'access' => 'Owner',
+                'online' => true,
+                'avatar_url' => 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+            ],
+            (object) [
+                'id' => 3,
+                'name' => 'Dries Vincent',
+                'email' => 'dries.vincent@example.com',
+                'handle' => 'driesvincent',
+                'role' => 'Business Relations',
+                'access' => 'Member',
+                'online' => false,
+                'avatar_url' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+            ],
+            (object) [
+                'id' => 4,
+                'name' => 'Lindsay Walton',
+                'email' => 'lindsay.walton@example.com',
+                'handle' => 'lindsaywalton',
+                'role' => 'Front-end Developer',
+                'access' => 'Member',
+                'online' => true,
+                'avatar_url' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+            ],
+            (object) [
+                'id' => 5,
+                'name' => 'Courtney Henry',
+                'email' => 'courtney.henry@example.com',
+                'handle' => 'courtneyhenry',
+                'role' => 'Designer',
+                'access' => 'Admin',
+                'online' => true,
+                'avatar_url' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+            ],
+        ];
+    @endphp
+
+    <div class="p-6 sm:p-8">
+        <h1 class="mb-6 text-lg font-semibold text-zinc-950 dark:text-white">Team Members</h1>
+
+        <x-table dense="true" grid="true" striped="true" bleed="true" class="[--gutter:--spacing(6)] sm:[--gutter:--spacing(8)]">
+            <x-table-head>
+                <x-table-row>
+                    <x-table-header>Name</x-table-header>
+                    <x-table-header>Role</x-table-header>
+                    <x-table-header>Status</x-table-header>
+                    <x-table-header class="relative w-0">
+                        <span class="sr-only">Actions</span>
+                    </x-table-header>
+                </x-table-row>
+            </x-table-head>
+            <x-table-body>
+                @foreach($users as $user)
+                    <x-table-row>
+                        {{-- Name with Avatar --}}
+                        <x-table-cell>
+                            <div class="flex items-center gap-4">
+                            <span class="size-12 inline-grid shrink-0 align-middle rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10 overflow-hidden">
+                                <img
+                                    class="size-full object-cover"
+                                    src="{{ $user->avatar_url }}"
+                                    alt="{{ $user->name }}"
+                                >
+                            </span>
+                                <div>
+                                    <div class="font-medium">{{ $user->name }}</div>
+                                    <div class="text-zinc-500">
+                                        <a href="mailto:{{ $user->email }}" class="hover:text-zinc-700 dark:hover:text-zinc-300">
+                                            {{ $user->email }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </x-table-cell>
+
+                        {{-- Access Level --}}
+                        <x-table-cell class="text-zinc-500">
+                            {{ $user->access }}
+                        </x-table-cell>
+
+                        {{-- Online Status Badge --}}
+                        <x-table-cell>
+                            @if($user->online)
+                                <span class="inline-flex items-center gap-x-1.5 rounded-md px-1.5 py-0.5 text-sm/5 font-medium sm:text-xs/5 bg-lime-400/20 text-lime-700 dark:bg-lime-400/10 dark:text-lime-300">
+                                Online
+                            </span>
+                            @else
+                                <span class="inline-flex items-center gap-x-1.5 rounded-md px-1.5 py-0.5 text-sm/5 font-medium sm:text-xs/5 bg-zinc-600/10 text-zinc-700 dark:bg-white/5 dark:text-zinc-400">
+                                Offline
+                            </span>
+                            @endif
+                        </x-table-cell>
+
+                        {{-- Actions Dropdown --}}
+                        <x-table-cell>
+                            <div class="-mx-3 -my-1.5 sm:-mx-2.5">
+                                <button
+                                    type="button"
+                                    class="relative inline-flex items-center justify-center rounded-lg p-2 text-zinc-500 hover:bg-zinc-950/5 hover:text-zinc-700 dark:hover:bg-white/10 dark:hover:text-zinc-300"
+                                    aria-label="More options"
+                                >
+                                    <svg class="size-5" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M2 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM6.5 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </x-table-cell>
+                    </x-table-row>
+                @endforeach
+            </x-table-body>
+        </x-table>
+    </div>
+
 </div>
 
 /*
