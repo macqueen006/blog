@@ -19,7 +19,19 @@
 </head>
 <body class="dark:bg-[#0a0a0a] dark:text-[#FDFDFC] p-6">
 
+<x-description-list>
+    <x-description-term>Customer</x-description-term>
+    <x-description-details>Leslie Alexander</x-description-details>
 
+    <x-description-term>Email</x-description-term>
+    <x-description-details>leslie.alexander@example.com</x-description-details>
+
+    <x-description-term>Access</x-description-term>
+    <x-description-details>Admin</x-description-details>
+
+    <x-description-term>Profession</x-description-term>
+    <x-description-details>Full Stack Developer</x-description-details>
+</x-description-list>
 
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))

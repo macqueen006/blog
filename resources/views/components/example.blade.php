@@ -107,46 +107,20 @@
     {{-- Non-Resizable --}}
     <x-textarea name="description" :resizable="false" />
 
-    {{--  --}}
+    {{-- Description --}}
+    <x-description-list>
+        <x-description-term>Customer</x-description-term>
+        <x-description-details>Leslie Alexander</x-description-details>
 
-    <div class="" x-data="{ fieldId: 'field-6920158d5dc15', disabled: false, invalid: false }" x-init="
-        $watch('disabled', value =&gt; {
-            $el.querySelectorAll('input, textarea, select').forEach(el =&gt; {
-                value ? el.setAttribute('disabled', '') : el.removeAttribute('disabled');
-            });
-        });
+        <x-description-term>Email</x-description-term>
+        <x-description-details>leslie.alexander@example.com</x-description-details>
 
-        // Set IDs and ARIA attributes immediately
-        const label = $el.querySelector('label');
-        const input = $el.querySelector('input, textarea, select');
-        const description = $el.querySelector('[data-description]');
-        const error = $el.querySelector('[data-error]');
+        <x-description-term>Access</x-description-term>
+        <x-description-details>Admin</x-description-details>
 
-        if (label &amp;&amp; input) {
-            const inputId = fieldId + '-input';
-            label.setAttribute('for', inputId);
-            input.setAttribute('id', inputId);
-
-            if (description) {
-                const descId = fieldId + '-description';
-                description.setAttribute('id', descId);
-                input.setAttribute('aria-describedby', descId);
-            }
-
-            if (error) {
-                const errorId = fieldId + '-error';
-                error.setAttribute('id', errorId);
-                if (invalid) input.setAttribute('aria-errormessage', errorId);
-            }
-        }
-    ">
-        <label class="select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white" for="field-6920158d5dc15-input">
-            Name
-        </label>
-        <span class="relative block w-full before:absolute before:inset-px before:rounded-md before:bg-white before:shadow-sm dark:before:hidden after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:ring-transparent after:ring-inset sm:focus-within:after:ring focus-within:after:ring focus-within:after:ring-blue-500">
-    <input type="text" name="email" disabled="" title="Field currently disabled" class="block w-full appearance-none rounded-md px-[calc(0.75rem-1px)] py-[calc(0.375rem-1px)] text-sm/6 text-zinc-950 placeholder:text-zinc-500 dark:text-white dark:placeholder:text-zinc-400 border border-zinc-950/10 hover:border-zinc-950/20 dark:border-white/10 dark:hover:border-white/20 bg-transparent dark:bg-white/5 focus:outline-none focus:outline focus:outline focus:outline-offset focus:outline-blue-500 disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-zinc-100 dark:disabled:bg-zinc-900 disabled:text-zinc-500 dark:disabled:text-zinc-500 disabled:border-zinc-200 dark:disabled:border-zinc-800" placeholder="Na Name" id="field-6920158d5dc15-input">
-</span>
-    </div>
+        <x-description-term>Profession</x-description-term>
+        <x-description-details>Full Stack Developer</x-description-details>
+    </x-description-list>
 
 </div>
 
