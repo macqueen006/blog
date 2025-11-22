@@ -396,6 +396,37 @@
     </x-switch-group>
 </div>
 
+{{-- Select --}}
+<x-select
+    name="status"
+    label="Project status"
+    :options="['active' => 'Active', 'paused' => 'Paused', 'delayed' => 'Delayed', 'canceled' => 'Canceled']"
+/>
+
+<x-select
+    name="status"
+    label="Project status"
+    description="This will be visible to clients on the project."
+    :options="['active' => 'Active', 'paused' => 'Paused']"
+/>
+
+<x-select
+    name="status"
+    label="Project status"
+    :options="['active' => 'Active', 'paused' => 'Paused']"
+    error="A project status is required."
+    value="{{ old('status') }}"
+/>
+
+<x-select
+    name="status"
+    label="Project status"
+>
+    <option value="">Select a status…</option>
+    <option value="active">Active</option>
+    <option value="paused">Paused</option>
+</x-select>
+
 /*
 if (this.disabled) {
 this.$el.querySelectorAll('[data-description], [data-error], label').forEach(el => {
