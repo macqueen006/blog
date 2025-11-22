@@ -18,29 +18,7 @@
     @fluxAppearance
 </head>
 <body class="dark:bg-[#0a0a0a] dark:text-[#FDFDFC] p-6">
-<x-fieldset>
-    <x-legend>Choose a plan</x-legend>
 
-    <x-radio-group>
-        <x-radio-field>
-            <x-radio name="plan" value="basic" :checked="true" />
-            <x-label>Basic</x-label>
-            <x-description>$10/month</x-description>
-        </x-radio-field>
-
-        <x-radio-field>
-            <x-radio name="plan" value="pro" />
-            <x-label>Pro</x-label>
-            <x-description>$25/month</x-description>
-        </x-radio-field>
-
-        <x-radio-field>
-            <x-radio name="plan" value="enterprise" />
-            <x-label>Enterprise</x-label>
-            <x-description>Contact us</x-description>
-        </x-radio-field>
-    </x-radio-group>
-</x-fieldset>
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">

@@ -380,6 +380,20 @@
         </x-radio-field>
     </x-radio-group>
 
+    {{-- Switch --}}
+    <x-switch-group>
+        <x-switch-field>
+            <x-label>Show on events page</x-label>
+            <x-description>Make this event visible on your profile.</x-description>
+            <x-switch name="show_on_events_page" :checked="true" color="orange" />
+        </x-switch-field>
+
+        <x-switch-field>
+            <x-label>Allow embedding</x-label>
+            <x-description class="col-span-full">Allow others to embed your event details on their own site.</x-description>
+            <x-switch name="allow_embedding" />
+        </x-switch-field>
+    </x-switch-group>
 </div>
 
 /*
