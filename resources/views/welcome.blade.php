@@ -18,64 +18,29 @@
     @fluxAppearance
 </head>
 <body class="dark:bg-[#0a0a0a] dark:text-[#FDFDFC] p-6">
+<x-fieldset>
+    <x-legend>Choose a plan</x-legend>
 
-<x-description-list>
-    <x-description-term>Customer</x-description-term>
-    <x-description-details>Leslie Alexander</x-description-details>
+    <x-radio-group>
+        <x-radio-field>
+            <x-radio name="plan" value="basic" :checked="true" />
+            <x-label>Basic</x-label>
+            <x-description>$10/month</x-description>
+        </x-radio-field>
 
-    <x-description-term>Email</x-description-term>
-    <x-description-details>leslie.alexander@example.com</x-description-details>
+        <x-radio-field>
+            <x-radio name="plan" value="pro" />
+            <x-label>Pro</x-label>
+            <x-description>$25/month</x-description>
+        </x-radio-field>
 
-    <x-description-term>Access</x-description-term>
-    <x-description-details>Admin</x-description-details>
-
-    <x-description-term>Profession</x-description-term>
-    <x-description-details>Full Stack Developer</x-description-details>
-</x-description-list>
-
-
-<div x-data="{ open: false }">
-    <button @click="open = true">View Terms</button>
-
-    <x-dialog size="sm">
-        <x-dialog-title>Terms and Conditions</x-dialog-title>
-        <x-dialog-description>
-            Please agree to the following terms and conditions to continue.
-        </x-dialog-description>
-
-        <x-dialog-body class="max-h-96 overflow-y-auto text-sm/6 text-zinc-900 dark:text-white">
-            <p class="mt-4">
-                By accessing and using our services, you are agreeing to these terms...
-            </p>
-            <h3 class="mt-6 font-bold">Comprehensive Acceptance of Terms</h3>
-            <p class="mt-4">
-                Your engagement with our application signifies your irrevocable acceptance...
-            </p>
-            {{-- More content --}}
-        </x-dialog-body>
-
-        <x-dialog-actions>
-            <button @click="open = false">Decline</button>
-            <button @click="open = false">Accept</button>
-        </x-dialog-actions>
-    </x-dialog>
-</div>
-
-<div class="max-w-[400px]">
-    <x-pagination>
-        <x-pagination-previous href="?page=1" />
-        <x-pagination-list>
-            <x-pagination-page href="?page=1">1</x-pagination-page>
-            <x-pagination-page href="?page=2">2</x-pagination-page>
-            <x-pagination-page href="?page=3" current>3</x-pagination-page>
-            <x-pagination-page href="?page=4">4</x-pagination-page>
-            <x-pagination-gap />
-            <x-pagination-page href="?page=65">65</x-pagination-page>
-            <x-pagination-page href="?page=66">66</x-pagination-page>
-        </x-pagination-list>
-        <x-pagination-next href="?page=4">Next</x-pagination-next>
-    </x-pagination>
-</div>
+        <x-radio-field>
+            <x-radio name="plan" value="enterprise" />
+            <x-label>Enterprise</x-label>
+            <x-description>Contact us</x-description>
+        </x-radio-field>
+    </x-radio-group>
+</x-fieldset>
 {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">

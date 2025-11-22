@@ -361,6 +361,24 @@
         </x-pagination>
     @endif
 
+    {{-- radio button --}}
+    <x-radio-group name="resale" default-value="permit" aria-label="Resale and transfers">
+        <x-radio-field>
+            <x-radio value="permit" />
+            <x-label>Allow tickets to be resold</x-label>
+            <x-description class="col-span-full">
+                Customers can resell or transfer their tickets if they can't make it to the event.
+            </x-description>
+        </x-radio-field>
+
+        <x-radio-field>
+            <x-radio value="forbid" :checked="true" color="red" />
+            <x-label>Don't allow tickets to be resold</x-label>
+            <x-description class="col-span-full">
+                Tickets cannot be resold or transferred to another person.
+            </x-description>
+        </x-radio-field>
+    </x-radio-group>
 
 </div>
 
