@@ -1,4 +1,3 @@
-{{-- resources/views/components/button.blade.php --}}
 @props([
     'type' => 'button',
     'color' => 'dark',

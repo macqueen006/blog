@@ -3,7 +3,7 @@
 ])
 
 <label
-    {{ $attributes->merge(['class' => 'select-none text-sm/6 text-zinc-950 disabled:opacity-50 dark:text-white']) }}
+    {{ $attributes->merge(['class' => 'select-none text-sm/6 text-zinc-950 disabled:opacity-50 dark:text-white whitespace-nowrap']) }}
     @if($for) for="{{ $for }}" @endif
 >
     {{ $slot }}
